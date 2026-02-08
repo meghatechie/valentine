@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Valentine 💖</title>
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#ffe6eb;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      margin:0;
+      overflow:hidden;
+    }
+
+    .card{
+      background:#fff;
+      padding:25px;
+      border-radius:20px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+      width:330px;
+      position:relative;
+    }
+
+    .photo{
+      width:130px;
+      height:130px;
+      border-radius:50%;
+      object-fit:cover;
+      border:4px solid #ff3366;
+      margin-bottom:12px;
+    }
+
+    h2{
+      margin:5px 0;
+      color:#ff3366;
+    }
+
+    p{
+      margin:6px 0;
+      color:#555;
+    }
+
+    .btn-container{
+      margin-top:15px;
+      position:relative;
+      height:70px;
+    }
+
+    button{
+      font-size:18px;
+      padding:10px 22px;
+      border:none;
+      border-radius:25px;
+      cursor:pointer;
+      position:absolute;
+    }
+
+    #yes{
+      background:#ff3366;
+      color:white;
+      left:20px;
+      top:15px;
+      z-index:2;
+    }
+
+    #no{
+      background:#ddd;
+      right:20px;
+      top:15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <!-- PHOTO (file must be named photo.jpg) -->
+    <img class="photo" src="photo.jpg" alt="photo">
+
+    <!-- NAME -->
+    <h2>Hey ❤️ Naman</h2>
+
+    <p>Will you be my Valentine? 💘</p>
+    <p><small>Choose wisely 😉</small></p>
+
+    <div class="btn-container">
+      <button id="yes" onclick="yesClicked()">Yes 💖</button>
+      <button id="no" onmouseover="moveNo()" onclick="moveNo()">No 😝</button>
+    </div>
+  </div>
+
+  <script>
+    function yesClicked(){
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          flex-direction:column;
+          background:#ffe6eb;
+          font-family:Arial;
+          text-align:center;
+        ">
+          <h1 style="color:#ff3366;">Yayyy! 💖</h1>
+          <h2>Valentine confirmed, Naman 😘</h2>
+          <p>Best decision ever 💕</p>
+          <div style="font-size:40px;">💘 💕 💖 💞</div>
+        </div>
+      `;
+    }
+
+    function moveNo(){
+      const noBtn = document.getElementById("no");
+
+      // random safe movement area
+      const x = Math.random() * 150 + 120; 
+      const y = Math.random() * 40 + 15;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+  </script>
+</body>
+</html>
